@@ -1,5 +1,6 @@
 from os import system
-from xlrd import open_workbook
+from listaDePersonas import imprimir_lista_de_personas
+from listaDeLibros import imprimir_lista_de_libros
 
 def menu ():
     menu = """
@@ -17,22 +18,12 @@ def menu ():
         operacion = input("Seleccione una opción: ")
         if (operacion == 'a'):
             print ("seleccionó la opcion a", sep='\n')
-            path = "data/personas.xlsx"
-
-            wb = open_workbook(path)
-            sh1 = wb.sheet_by_index(0)
-            for i in range(sh1.nrows):
-                print(sh1.cell_value(i, 0) + "      " + sh1.cell_value(i, 1) + "        " + sh1.cell_value(i, 2))
+            imprimir_lista_de_personas()
             input ("Presione cualquier letra para regresar al menu ")
             system ('cls')
         if (operacion == 'b'):
             print ("seleccionó la opcion b", sep='\n')
-            path = "data/libros.xlsx"
-
-            wb = open_workbook(path)
-            sh1 = wb.sheet_by_index(0)
-            for i in range(sh1.nrows):
-                print(sh1.cell_value(i, 0) + "      " + sh1.cell_value(i, 1))
+            imprimir_lista_de_libros()
             input ("Presione cualquier letra para regresar al menu ")
             system ('cls')      
        
