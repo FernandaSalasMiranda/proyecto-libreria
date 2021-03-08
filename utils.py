@@ -6,3 +6,8 @@ def imprimir_persona(val):
 
 def imprimir_libro(val):
     return val["id"] + " - " + val["titulo"] + " " + val["genero"] + " " + val["autor"] + "\n"
+
+def imprimir_prestamo(val):
+    libro = val["libro"]
+    persona = val["persona"]
+    return "Se presto el libro: " + libro + " a " + persona
