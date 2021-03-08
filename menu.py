@@ -56,7 +56,7 @@ def menu ():
             imprimir_libros_prestados()
             input ("Presione cualquier letra para regresar al menu ")
             system ('cls') 
-        if (operacion == 's'):
+        if (operacion == 'g'):
             system ('cls')
             print ('nos vemos!!')
             break
