@@ -1,8 +1,16 @@
-from xlrd import open_workbook
+from cargarDatos import cargar_lista_de_personas
+from utils import imprimir_nombre
 
-def imprimir_lista_de_personas():
-    path = "data/personas.xlsx"
-    wb = open_workbook(path)
-    sh1 = wb.sheet_by_index(0)
-    for i in range(sh1.nrows):
-        print(sh1.cell_value(i, 0) + "      " + sh1.cell_value(i, 1) + "        " + sh1.cell_value(i, 2))
+def mostrar_titulo():
+    print("*********************************************")
+    print("**             Lista de personas           **")
+    print("*********************************************")
+
+def imprimir_lista_de_personas(ordenar_lista):
+    lista_de_personas = cargar_lista_de_personas()
+    mostrar_titulo()
+    if(ordenar_lista):
+        lista_ordenada = sorted(lista_de_personas, key=lambda persona: persona['nombre'])
+        print(*map(imprimir_nombre, lista_ordenada))
+    else:
+        print(*map(imprimir_nombre, lista_de_personas))
